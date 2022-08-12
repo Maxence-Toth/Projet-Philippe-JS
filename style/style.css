@@ -1,0 +1,75 @@
+/* Categories Cloud */
+
+#categoriesCloud {
+   margin: auto;
+}
+
+#categories {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 2.5rem;
+}
+
+#categories a {
+  color: rgb(252, 245, 245);
+  background-color: rgb(90, 82, 73);
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.125rem 0.25rem;
+  text-decoration: none;
+  position: relative;
+}
+
+
+
+/* Tags Cloud */
+
+
+#tags {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 2.5rem;
+}
+
+#tags a {
+  color: rgb(28, 52, 184);
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.125rem 0.25rem;
+  text-decoration: none;
+  position: relative;
+}
+
+/* ul a {
+  --size: 1;
+  font-size: calc(var(--size) * 0.25rem + 0.5rem);
+}
+
+ul a {
+  --size: 2;
+  font-size: calc(var(--size) * 0.25rem + 0.5rem);
+}
+
+ul a {
+  --size: 3;
+  font-size: calc(var(--size) * 0.25rem + 0.5rem);
+}
+
+ul a {
+  --size: 4;
+  font-size: calc(var(--size) * 0.25rem + 0.5rem);
+}
+
+ul a[data-weight="0"] { display: none; }
+ul a[data-weight="1"] { --size: 1; }
+ul a[data-weight="2"] { --size: 2; }
+ul a[data-weight="3"] { --size: 3; }
+ul a[data-weight="4"] { --size: 4; } */
