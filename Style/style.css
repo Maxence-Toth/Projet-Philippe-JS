@@ -1,0 +1,28 @@
+.tag {
+    display: inline-block;
+    font-size: small;
+    border: 1px solid #555;
+    background-color: #aaa;
+    margin: 5px 2px;
+    padding: 1px;
+}
+
+#grid {
+    display: grid;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+.secondtitle {
+    text-align: center;
+    font-size: 50px;
+    padding: 5px;
+    margin: 5px;
+}
+
+h1 {
+    text-align: center;
+}
