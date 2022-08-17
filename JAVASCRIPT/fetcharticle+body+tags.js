@@ -102,13 +102,24 @@ let selectArticles = function() {
           articleList = document.createElement("div")
           articleH2 = document.createElement("h2");
           articleBody = document.createElement("p");
+          articlePublished_at = document.createElement("p");
 
+
+          articleList.className = "divArticle";
           articleH2.innerHTML = article["title"]
           articleBody.innerHTML = article["body"]
+          articlePublished_at.innerHTML = article["published_at"]
+
           
           articleList.appendChild(articleH2)
           articleList.appendChild(articleBody)
+          articleList.appendChild(articlePublished_at)
           articlesDiv.appendChild(articleList)
+
+          if (articlePublished_at.innerHTML == "undefined") {
+            articlePublished_at.innerHTML = "Date non précisée"
+          }
+    
         });
         })
     }
