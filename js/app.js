@@ -9,28 +9,28 @@ let selectCategories = function() {
         categories = document.querySelector("#categories");
         jsonResponse["hydra:member"].forEach(function(category) {
           categoryList = document.createElement("li")
-          categoryList.innerHTML = `<a href="${category.name}" data-weight="${size}">${category.name}</a>`;
+          categoryList.innerHTML = category.name;
 
-          var articleInCategory = category.articles.length;
-          if(articleInCategory >= category.articles.length * (1/10) 
-                                  && articleInCategory <= category.articles.length * (2/10)){
-              var size = 1;
+        //   var articleInCategory = category.articles.length;
+        //   if(articleInCategory >= category.articles.length * (1/10) 
+        //                           && articleInCategory <= category.articles.length * (2/10)){
+        //       var size = 1;
               
-          } else if(articleInCategory >= category.articles.length * (3/10) 
-                                       && articleInCategory <= category.articles.length * (5/10)){
-              var size = 2;
+        //   } else if(articleInCategory >= category.articles.length * (3/10) 
+        //                                && articleInCategory <= category.articles.length * (5/10)){
+        //       var size = 2;
 
-          } else if(articleInCategory >= category.articles.length * (6/10) 
-                                        && articleInCategory <= category.articles.length * (8/10)){
-              var size = 3;
+        //   } else if(articleInCategory >= category.articles.length * (6/10) 
+        //                                 && articleInCategory <= category.articles.length * (8/10)){
+        //       var size = 3;
 
-          } else if(articleInCategory >= category.articles.length * (9/10) 
-                                      && articleInCategory <= category.articles.length * (1/10)){
-            var size = 4;
+        //   } else if(articleInCategory >= category.articles.length * (9/10) 
+        //                               && articleInCategory <= category.articles.length * (1/10)){
+        //     var size = 4;
 
-          } else {
-              var size = 0;
-          }
+        //   } else {
+        //       var size = 0;
+        //   }
 
         
           categories.appendChild(categoryList);
