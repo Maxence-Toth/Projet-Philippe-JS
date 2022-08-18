@@ -88,8 +88,7 @@
 // fetchApi()
 
 
-
-let selectArticles = function() {
+let displayArticles = function() {
     fetch("https://127.0.0.1:8000/api/articles", { method: "GET"})
     .then(function (response) {
         return response.json();
@@ -119,9 +118,41 @@ let selectArticles = function() {
           if (articlePublished_at.innerHTML == "undefined") {
             articlePublished_at.innerHTML = "Date non précisée"
           }
+
+          updateButton = document.createElement("button")
+          updateButton.innerHTML = "Modifier"
+
+          
+          articlesDiv.appendChild(updateButton)
+          console.log(article.tags)
+
+
+  
+          article.tags.forEach(function(tag){
+              fetch("https://127.0.0.1:8000/api/tags",
+                  {method: "GET"})
+                  .then(function(responseTag){
+                      return responseTag.json() })
+                      .then((responseTagJSON) => {
+                          selectTag = document.createElement("select")
+                          selectTag.value = tag["id"]
+                              responseTagJSON["hydra:member"].forEach(tag => {
+                              displayTag = document.createElement("option")
+                              displayTag.innerHTML = tag["name"]
+                              displayTag.value = tag["id"]
+                              displayTag.id = "option-" + article["id"]
+                              selectTag.appendChild(displayTag)
+                          })
+                          displayArticle.appendChild(selectTag)
+                          document.querySelector("#article" + article["id"]).appendChild(selectTag)
+                  })
+                 
+          })
+                        
+                    
     
         });
         })
     }
 
-selectArticles();
+displayArticles();
