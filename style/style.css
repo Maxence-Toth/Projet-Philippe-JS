@@ -50,6 +50,20 @@
 
 
 .divArticle{
-  border: 1px solid black;
+  border: 3px solid black;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.divArticle h2{
+  text-decoration: underline;
+}
+
+.divArticle p{
+  color: gray;
+}
+
+.bodyInput{
   margin-top: 10px;
+  width: 50%;
 }
