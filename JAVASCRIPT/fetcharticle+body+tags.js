@@ -167,4 +167,35 @@ let displayArticles = function() {
 
 displayArticles();
 
+var mainDiv = document.querySelector("#main");
+var createButton = document.createElement("button");
+createButton.innerText = "Créer un article"
+mainDiv.appendChild(createButton);
 
+createTitleInput = document.createElement("input")
+createBodyInput = document.createElement("textarea")
+mainDiv.appendChild(createTitleInput)
+mainDiv.appendChild(createBodyInput)
+
+var createArticle = function() {
+
+    var requestParameters = {
+        "title": createtitleInput.value,
+        "body" : createbodyInput.value
+        }
+        
+    fetch("https://127.0.0.1:8000/api/articles", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestParameters)
+        })
+        // .then((response) => {
+        //     if (response.status == 201) {
+        //         infoZoneDiv.textContent = "Création de l'article effectué";
+            
+        //     } else {
+        //         infoZoneDiv.textContent = "⚠ Une erreur est survenue lors de la création de l'article";
+        //     }
+        // })
+        createButton.addEventListener("click", createArticle);
+}
