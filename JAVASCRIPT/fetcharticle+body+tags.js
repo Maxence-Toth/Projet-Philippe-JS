@@ -88,6 +88,7 @@
 // fetchApi()
 
 
+//AFFICHAGE DE TOUT LES ARTICLES 
 let displayArticles = function() {
     fetch("https://127.0.0.1:8000/api/articles", { method: "GET"})
     .then(function (response) {
@@ -121,38 +122,68 @@ let displayArticles = function() {
 
           updateButton = document.createElement("button")
           updateButton.innerHTML = "Modifier"
+          titleInput = document.createElement("input")
+          
 
           
           articlesDiv.appendChild(updateButton)
-          console.log(article.tags)
+          articlesDiv.appendChild(titleInput)
+          
 
 
-  
-          article.tags.forEach(function(tag){
-              fetch("https://127.0.0.1:8000/api/tags",
-                  {method: "GET"})
-                  .then(function(responseTag){
-                      return responseTag.json() })
-                      .then((responseTagJSON) => {
-                          selectTag = document.createElement("select")
-                          selectTag.value = tag["id"]
-                              responseTagJSON["hydra:member"].forEach(tag => {
-                              displayTag = document.createElement("option")
-                              displayTag.innerHTML = tag["name"]
-                              displayTag.value = tag["id"]
-                              displayTag.id = "option-" + article["id"]
-                              selectTag.appendChild(displayTag)
-                          })
-                          displayArticle.appendChild(selectTag)
-                          document.querySelector("#article" + article["id"]).appendChild(selectTag)
+  //AFFICHAGE DE LA LISTE DES TAGS (Non fonctionnel)
+          // article.tags.forEach(function(tag){
+          //     fetch("https://127.0.0.1:8000/api/tags",
+          //         {method: "GET"})
+          //         .then(function(responseTag){
+          //             return responseTag.json() })
+          //             .then((responseTagJSON) => {
+          //                 selectTag = document.createElement("select")
+          //                 selectTag.value = tag["id"]
+          //                     responseTagJSON["hydra:member"].forEach(tag => {
+          //                     displayTag = document.createElement("option")
+          //                     displayTag.innerHTML = tag["name"]
+          //                     displayTag.value = tag["id"]
+          //                     displayTag.id = "option-" + article["id"]
+
+          //                     articlesDiv.appendChild(selectTag)
+          //                     selectTag.appendChild(displayTag)
+          //              })
+                          
+          //         })
+          //    })
+
+
+             var updateArticle = function() {
+              
+              var requestParameters = {
+                  "title": titleInput.value
+              }
+              fetch("https://127.0.0.1:8000/api/articles" + "/" + article["id"], {
+                      method: "PUT",
+                      headers: {
+                          'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(requestParameters)
                   })
-                 
-          })
-                        
-                    
-    
+                  // .then((response) => {
+                  //     if (response.status == 200) {
+                  //         infoZoneDiv.textContent = "Modification du titre effectuée";
+                  //         readTags();
+                  //     } else {
+                  //         infoZoneDiv.textContent = "⚠ Une erreur est survenue lors de la modification du titre";
+                  //     }
+                  // })
+        
+          }
+
+updateArticle();
+
+
         });
         })
     }
 
 displayArticles();
+
+
