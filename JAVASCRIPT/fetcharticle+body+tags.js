@@ -167,6 +167,7 @@ let displayArticles = function() {
 
 displayArticles();
 
+
 var mainDiv = document.querySelector("#main");
 var createButton = document.createElement("button");
 createButton.innerText = "Créer un article"
